@@ -98,7 +98,7 @@ namespace console
             hoogte = double.Parse(Console.ReadLine());
 
             volume = MeetkundigeFormules.VolumeCilinder(straal, hoogte);
-            Console.WriteLine($"De volume van de cilinder is {(volume.ToString("0"))} cm²");
+            Console.WriteLine($"De volume van de cilinder is {(volume.ToString("0.0"))} cm²");
         }
     }
 }
