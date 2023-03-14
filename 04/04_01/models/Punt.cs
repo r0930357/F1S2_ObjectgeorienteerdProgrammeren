@@ -37,7 +37,7 @@ namespace models
         // Property Omschrijving
         // Dit geeft als returnwaarde de tekstuele waarde<klassenaam>:coord=(<X>,<Y>)
         // Tip: De klassenaam is op te vragen door de methode this.GetType().Name
-        public string Omschijving
+        public virtual string Omschijving
         {
             get { return $"{this.GetType().Name}:coord(<{X}>, <{Y}>)"; }
         }
