@@ -1,23 +1,23 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace models
 {
-    public class Rekening
+    public class Bankrekening
     {
-        /* Rekening
-         * --------------------------------------------
+        /* Bankrekening
+         * ------------------------------------------------
          * +IbanNummer : string
          * +LandCode : string
          * +Minimum : double
          * +Saldo : double
-         * --------------------------------------------
-         * +Rekening(ibanNummer: string, saldo: double)
+         * ------------------------------------------------
+         * +Bankrekening(ibanNummer: string, saldo: double)
          * +Afhalen(bedrag: double) : void
          * +Storten(bedrag: double) : void
          * +ToonGegevens() : string
+         * +ToString() : string
          */
 
         public string _ibanNummer;
@@ -62,7 +62,7 @@ namespace models
             }
         }
 
-        public Rekening(string ibanNummer, double saldo)
+        public Bankrekening(string ibanNummer, double saldo)
         {
             IbanNummer = ibanNummer;
             Saldo = saldo;
@@ -70,21 +70,28 @@ namespace models
 
         public void Afhalen(double bedrag)
         {
-            //Geen acties gedefiniëerd in de opdracht
+
         }
 
         public void Storten(double bedrag)
         {
-            //Geen acties gedefiniëerd in de opdracht
+
         }
 
         public virtual string ToonGegevens()
         {
-            // Geef een IBAN: BE12
-            // Geef een saldo: 1500
-            // Rekening BE12 met saldo 1500
             string gegevens = "";
             return gegevens;
         }
+
+        /* Methode ToString()
+         * Geeft de tekstuele voorstelling van het object als volgt:
+         * <IbanNummer> -> Je huidig saldo bedraagt: <Saldo> euro.
+         */
+        public virtual string ToString()
+        {
+            return $"{this.IbanNummer} -> Je huidig saldo bedraagt: {this.Saldo} euro.";
+        }
+
     }
 }

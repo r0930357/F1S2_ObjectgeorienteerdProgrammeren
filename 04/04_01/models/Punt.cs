@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Xml.Linq;
 
@@ -30,16 +31,16 @@ namespace models
 
         public double Y
         {
-            get { return _x; }
-            set { _x = value; }
+            get { return _y; }
+            set { _y = value; }
         }
         
         // Property Omschrijving
         // Dit geeft als returnwaarde de tekstuele waarde<klassenaam>:coord=(<X>,<Y>)
         // Tip: De klassenaam is op te vragen door de methode this.GetType().Name
-        public virtual string Omschijving
+        public virtual string Omschrijving
         {
-            get { return $"{this.GetType().Name}:coord(<{X}>, <{Y}>)"; }
+            get { return this.GetType().Name + $" : coord=({X},{Y})"; }
         }
 
         public Punt(double x, double y)
@@ -54,7 +55,7 @@ namespace models
         // returnwaarde is de omschrijving.
         public virtual string ToonGegevens()
         {
-            string omschrijving = $"{Omschijving}";
+            string omschrijving = $"{this.Omschrijving}";
             return omschrijving ;
         }
     }

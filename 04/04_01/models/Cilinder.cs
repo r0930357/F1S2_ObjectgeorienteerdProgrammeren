@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace models
@@ -22,7 +20,6 @@ namespace models
          */
 
         public double _h;
-        public string _omschrijving;
 
         public double H
         {
@@ -33,9 +30,9 @@ namespace models
         // Property Omschrijving
         // Dit geeft als returnwaarde de waarde.
         // <klassenaam>:coord= (< X >,< Y >) straal<R>, hoogte<H>
-        public string Omschrijving
+        public override string Omschrijving
         {
-            get { return $"{this.GetType().Name}:coord(<{X}>, <{Y}>)"; }
+            get { return base.Omschrijving + $", hoogte {H}"; }
         }
 
         public Cilinder(double x, double y, double h, double r) : base(x, y, r)
@@ -47,11 +44,11 @@ namespace models
 
         // Methode Oppervlakte()
         // Berekent de oppervlakte van de cilinder.
-        // Formule = 2 * π* r² + 2 * π* r * h.
+        // Formule = 2 * π * r² + 2 * π * r * h.
         // Maak in de formule gebruik van de oppervlakte en de omtrek die in de klasse Cirkel is aangemaakt
-        public double OppervlakteCilinder()
+        public override double Oppervlakte()
         {
-            double oppervlakte = 2 * Math.PI * Math.Pow(R, 2) * Math.PI * R * H;
+            double oppervlakte = 2 * base.Oppervlakte() + base.Omtrek() * H;
             return oppervlakte;
         }
 
@@ -62,8 +59,8 @@ namespace models
 
         public double Volume()
         {
-            double volume = Math.PI * Math.Pow(R, 2) * H;
-            return Math.Round(volume, 2);
+            double volume = base.Oppervlakte() * H;
+            return volume;
         }
 
         // Methode ToonGegevens()
@@ -72,9 +69,13 @@ namespace models
         // Oppervlakte: <Oppervlakte>
         // Volume: <Volume>
         // Maak gebruik van de property Omschrijving!
+
         public override string ToonGegevens()
         {
-            return base.ToonGegevens() + $"straal <{R}>, hoogte<{H}>\nOmtrek: {Omtrek()}\nOppervlakte: {Oppervlakte()}\nVolume: {Volume()}";
+            string toongegevens = $"{this.Omschrijving}\n" +
+                $"Oppervlakte: {Math.Round(Oppervlakte(), 2)}\n" +
+                $"Volume: {Math.Round(Volume(), 2)}";
+            return toongegevens;
         }
     }
 }

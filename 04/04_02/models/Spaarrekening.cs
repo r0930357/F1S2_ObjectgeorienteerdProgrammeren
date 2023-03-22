@@ -24,7 +24,7 @@ namespace models
             set { _percentage = value; }
         }
 
-        public Spaarrekening() : base()
+        public Spaarrekening() : base("", 0)
         {
             SchrijfRentebij();
         }
@@ -36,7 +36,7 @@ namespace models
 
         public void SchrijfRentebij()
         {
-
+            //Geen acties gedefiniëerd in de opdracht
         }
     }
 }

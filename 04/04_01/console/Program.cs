@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
 using models;
 
 namespace console
@@ -21,91 +18,53 @@ namespace console
              */
 
             int keuze;
-            double omtrek, oppervlakte, volume;
+            string invoer;
 
             Punt punt = new Punt();
             Cirkel cirkel = new Cirkel();
             Cilinder cilinder = new Cilinder();
 
             Console.Write($"0. Punt\n1. Cirkel\n2. Cilinder\n");
-            keuze = Keuze();
             
-            switch (keuze)
-            {
-                // Punt
-                case 0:
-                    punt.X = VraagX();
-                    punt.Y = VraagY();
-                    Console.WriteLine(punt.ToonGegevens());
-                    break;
-                // Cirkel
-                case 1:
-                    cirkel.X = VraagX();
-                    cirkel.Y = VraagY();
-                    cirkel.R = VraagR();
-                    omtrek = cirkel.Omtrek();
-                    oppervlakte = cirkel.Oppervlakte();
-                    Console.WriteLine(cirkel.ToonGegevens()); 
-                    break;
-                // Cilinder
-                case 2:
-                    cilinder.X = VraagX();
-                    cilinder.Y = VraagY();
-                    cilinder.R = VraagR();
-                    cilinder.H = VraagH();
-                    omtrek = cilinder.Omtrek();
-                    oppervlakte = cilinder.Oppervlakte();
-                    volume = cilinder.Volume();
-                    Console.WriteLine(cilinder.ToonGegevens());
-                    break;
-            }
-        }
-
-        public static int Keuze()
-        {
-            int keuze;
-            string invoer;
-
             do
             {
                 Console.Write("\nGeef een optie: ");
                 invoer = Console.ReadLine();
             } while (!int.TryParse(invoer, out keuze) || keuze < 0 || keuze > 2);
-            return keuze;
-        }
 
-        public static double VraagX()
-        {
-            double x;
-            
-            Console.Write("X: ");
-            x = double.Parse(Console.ReadLine());
-            return x;
-        }
-        public static double VraagY()
-        {
-            double y;
-
-            Console.Write("Y: ");
-            y = double.Parse(Console.ReadLine());
-            return y;
-        }
-        public static double VraagR()
-        {
-            double r;
-
-            Console.Write("Straal: ");
-            r = double.Parse(Console.ReadLine());
-            return r;
-        }
-
-        public static double VraagH()
-        {
-            double h;
-
-            Console.Write("Hoogte: ");
-            h = double.Parse(Console.ReadLine());
-            return h;
+            switch (keuze)
+            {
+                case 0:
+                    // Punt
+                    Console.Write("X: ");
+                    punt.X = double.Parse(Console.ReadLine());
+                    Console.Write("Y: ");
+                    punt.Y = double.Parse(Console.ReadLine());
+                    Console.WriteLine(punt.ToonGegevens());
+                    break;
+                case 1:
+                    // Cirkel
+                    Console.Write("X: ");
+                    cirkel.X = double.Parse(Console.ReadLine());
+                    Console.Write("Y: ");
+                    cirkel.Y = double.Parse(Console.ReadLine());
+                    Console.Write("Straal: ");
+                    cirkel.R = double.Parse(Console.ReadLine());
+                    Console.WriteLine(cirkel.ToonGegevens()); 
+                    break;
+                case 2:
+                    // Cilinder
+                    Console.Write("X: ");
+                    cilinder.X = double.Parse(Console.ReadLine());
+                    Console.Write("Y: ");
+                    cilinder.Y = double.Parse(Console.ReadLine());
+                    Console.Write("Straal: ");
+                    cilinder.R = double.Parse(Console.ReadLine());
+                    Console.Write("Hoogte: ");
+                    cilinder.H = double.Parse(Console.ReadLine());
+                    Console.WriteLine(cilinder.ToonGegevens());
+                    break;
+            }
         }
     }
 }

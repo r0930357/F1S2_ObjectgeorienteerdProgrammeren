@@ -71,7 +71,7 @@ namespace console
                             Console.Write("Geef aantal kilometer: ");
                             invoer = Console.ReadLine();
                         } while (!int.TryParse(invoer, out aantalKilometer) || aantalKilometer < 0);
-;                       auto.Rijden(aantalKilometer);
+                        auto.Rijden(aantalKilometer);
                         break;
                     case 1:
                         Console.WriteLine(auto.ToString());
