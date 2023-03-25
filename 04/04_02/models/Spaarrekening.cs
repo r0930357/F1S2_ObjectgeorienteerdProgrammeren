@@ -5,7 +5,7 @@ using System.Text;
 
 namespace models
 {
-    public class Spaarrekening : Rekening
+    public class Spaarrekening : Bankrekening
     {
         /* Spaarrekening
          * -------------------------
@@ -16,7 +16,7 @@ namespace models
          * +SchrijfRentebij() : void
          */
 
-        public double _percentage;
+        private double _percentage;
 
         public double Percentage
         {
@@ -24,19 +24,20 @@ namespace models
             set { _percentage = value; }
         }
 
+        // Bij het aanmaken van een spaarrekening, zal standaard een percentage voorzien worden van 5%.
         public Spaarrekening() : base("", 0)
         {
-            SchrijfRentebij();
+            this.Percentage = 5;
         }
 
         public override string ToonGegevens()
         {
-            return base.ToonGegevens();
+            return base.ToonGegevens() + $" (percentage {this.Percentage})";
         }
 
         public void SchrijfRentebij()
         {
-            //Geen acties gedefiniëerd in de opdracht
+            Saldo = (1 + (Percentage/100)) * Saldo;
         }
     }
 }

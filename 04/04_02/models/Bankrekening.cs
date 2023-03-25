@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace models
@@ -18,7 +18,6 @@ namespace models
          * +Afhalen(bedrag: double) : void
          * +Storten(bedrag: double) : void
          * +ToonGegevens() : string
-         * +ToString() : string
          */
 
         private string _ibanNummer;
@@ -36,7 +35,7 @@ namespace models
         public string LandCode
         {
             get { return _ibanNummer.Substring(0, 2); }
-            set { _landCode = value; }
+            set { _landCode = value;  }
         }
 
         public virtual double Minimum
@@ -83,13 +82,6 @@ namespace models
         public virtual string ToonGegevens()
         {
             return $"Rekening {IbanNummer} met saldo {Saldo}";
-        }
-
-        // Geeft de tekstuele voorstelling van het object als volgt:
-        // <IbanNummer> -> Je huidig saldo bedraagt: <Saldo> euro.
-        public override string ToString()
-        {
-            return $"{IbanNummer} -> Je huidig saldo bedraagt: {Saldo} euro.";
         }
     }
 }

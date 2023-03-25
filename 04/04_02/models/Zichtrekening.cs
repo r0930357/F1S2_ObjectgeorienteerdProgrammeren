@@ -4,7 +4,7 @@ using System.Text;
 
 namespace models
 {
-    public class Zichtrekening : Rekening
+    public class Zichtrekening : Bankrekening
     {
         /* Zichtrekening
          * -------------------------------------------------
@@ -12,11 +12,15 @@ namespace models
          * +ToonGegevens() : string
          */
 
-        public Zichtrekening(string rekeningnr, double saldo) : base(rekeningnr, saldo) { }
-
-        public string ToonGegevens()
+        // Bij het aanmaken van een zichtrekening, zal er standaard een minimum voorzien worden van -100.
+        public Zichtrekening(string rekeningnr, double saldo) : base(rekeningnr, saldo)
         {
-            return base.ToonGegevens();
+            this.Minimum = -100;
+        }
+
+        public override string ToonGegevens()
+        {
+            return base.ToonGegevens() + $" (Minimum {Minimum})";
         }
     }
 }

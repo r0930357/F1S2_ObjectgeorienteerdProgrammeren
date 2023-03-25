@@ -19,7 +19,7 @@ namespace models
          * +ToonGegevens() : string
          */
 
-        public double _r;
+        private double _r;
 
         public double R
             { get { return _r; }
@@ -40,16 +40,14 @@ namespace models
             R = r;
         }
 
-        public Cirkel() : this (0, 0, 0) { }
+        public Cirkel() { }
 
         // Methode Omtrek()
         // Returnwaarde is de omtrek van de cirkel
         // Formule: 2 * π* r.Rond af tot 2 cijfers na de komma adhv Math.Round().
         public virtual double Omtrek()
         {
-            double omtrek;
-            omtrek = 2 * Math.PI * R;
-            return omtrek;
+            return 2 * Math.PI * R;
         }
 
         // Methode Oppervlakte()
@@ -58,9 +56,7 @@ namespace models
 
         public virtual double Oppervlakte()
         {
-            double oppervlakte;
-            oppervlakte = Math.PI * Math.Pow(R, 2);
-            return oppervlakte;
+            return Math.PI * Math.Pow(R, 2);
         }
 
         /* Methode ToonGegevens()
@@ -71,10 +67,9 @@ namespace models
          */
         public override string ToonGegevens()
         {
-            string toongegevens = $"{this.Omschrijving}\n" +
+            return $"{Omschrijving}\n" +
                 $"Oppervlakte: {Math.Round(Oppervlakte(), 2)}\n" +
                 $"Omtrek: {Math.Round(Omtrek(), 2)}";
-            return toongegevens ;
         }
     }
 }

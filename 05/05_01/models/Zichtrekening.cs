@@ -10,26 +10,25 @@ namespace models
          * -------------------------------------------------
          * +Zichtrekening(rekeningnr: string, saldo: double)
          * +ToonGegevens() : string
-         * +ToString() : string
-        */
-
-        public Zichtrekening(string rekeningnummer, double saldo) : base(rekeningnummer, saldo) { }
-
-        public string ToonGegevens()
-        {
-
-        }
-
-        /* Methode ToString()
-         * Geeft de tekstuele voorstelling van het object als volgt:
-         * <IbanNummer> -> Je hudig saldo bedraagt: <Saldo> euro.
-         * Het minimumbedrag bedraagt: <Minimum> euro.
          */
 
-        public override string ToString()
+        // Bij het aanmaken van een zichtrekening, zal er standaard een minimum voorzien worden van -100.
+        public Zichtrekening(string rekeningnr, double saldo) : base(rekeningnr, saldo)
         {
-            return base.ToString() + $"\nHet minimumbedrag bedraagt: {base.Minimum} euro.";
+            this.Minimum = -100;
         }
 
+        public override string ToonGegevens()
+        {
+            return base.ToonGegevens() + $" (Minimum {Minimum})";
+        }
+
+        // Geeft de tekstuele voorstelling van het object als volgt:
+        // <IbanNummer> -> Je hudig saldo bedraagt: <Saldo> euro.
+        // Het minimumbedrag bedraagt: <Minimum> euro.
+        public override string ToString()
+        {
+            return base.ToString() + $" Het minimumbedrag bedraagt: {Minimum} euro.";
+        }
     }
 }

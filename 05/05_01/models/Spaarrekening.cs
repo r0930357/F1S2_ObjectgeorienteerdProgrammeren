@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace models
@@ -13,7 +14,6 @@ namespace models
          * +Spaarrekening()
          * +ToonGegevens() : string
          * +SchrijfRentebij() : void
-         * +ToString() : string
          */
 
         private double _percentage;
@@ -24,29 +24,33 @@ namespace models
             set { _percentage = value; }
         }
 
-        /* Constructor
-         * Het percentage krijgt eens standaardwaarde van 15%
-        */
-        public Spaarrekening() { }
-
-        public string ToonGegevens()
+        // Het percentage krijgt een standaardwaarde van 15%.
+        public Spaarrekening(string rekeningnr, double saldo) : base(rekeningnr, saldo)
         {
+            this.Percentage = 15;
+        }
 
+        public Spaarrekening() : base("", 0)
+        {
+            this.Percentage = 15;
+        }
+
+        public override string ToonGegevens()
+        {
+            return base.ToonGegevens() + $" (percentage {this.Percentage})";
         }
 
         public void SchrijfRentebij()
         {
-
+            Saldo = (1 + (Percentage / 100)) * Saldo;
         }
 
-        /* Methode ToString()
-         * Geeft de tekstuele voorstelling van het object als volgt:
-         * <IbanNummer> -> Je huidig saldo bedraagt: <Saldo> euro.
-         * De rentevoet bedraagt: <Percentage>%
-         */
-        public string ToString()
+        //Geeft de tekstuele voorstelling van het object als volgt:
+        //<IbanNummer> -> Je huidig saldo bedraagt: <Saldo> euro.
+        //De rentevoet bedraagt: <Percentage>%
+        public override string ToString()
         {
-            return base.ToString() + $"\nDe rentevoet bedraagt: {this.Percentage}%";
+            return base.ToString() + $" De rentevoet bedraagt: {Percentage}%";
         }
     }
 }

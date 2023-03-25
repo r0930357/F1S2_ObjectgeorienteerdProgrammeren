@@ -19,9 +19,9 @@ namespace models
          * +ToonGegevens() : string
          */
 
-        public double _x;
-        public double _y;
-        public string _omschrijving;
+        private double _x;
+        private double _y;
+        private string _omschrijving;
 
         public double X
         {
@@ -40,7 +40,7 @@ namespace models
         // Tip: De klassenaam is op te vragen door de methode this.GetType().Name
         public virtual string Omschrijving
         {
-            get { return this.GetType().Name + $" : coord=({X},{Y})"; }
+            get { return this.GetType().Name + $": coord=({X},{Y})"; }
         }
 
         public Punt(double x, double y)
@@ -49,14 +49,13 @@ namespace models
             Y = y;
         }
 
-        public Punt() : this(0.0, 0.0) { }
+        public Punt() { }
 
         // Methode ToonGegevens()
         // returnwaarde is de omschrijving.
         public virtual string ToonGegevens()
         {
-            string omschrijving = $"{this.Omschrijving}";
-            return omschrijving ;
+            return $"{Omschrijving}";
         }
     }
 }

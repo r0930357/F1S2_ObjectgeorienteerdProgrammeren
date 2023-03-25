@@ -17,54 +17,75 @@ namespace console
              * Hierna word een object aangemaakt met opgevraagde waardes en word deze vervolgens getoond.
              */
 
+            // Declaratie van de variabelen
             int keuze;
-            string invoer;
+            double X, Y, straal, hoogte;
+            string invoer = "", weergave = "";
 
-            Punt punt = new Punt();
-            Cirkel cirkel = new Cirkel();
-            Cilinder cilinder = new Cilinder();
+            // Initiatie van de objecten
+            Punt punt;
+            Cirkel cirkel;
+            Cilinder cilinder;
 
+            // Keuzemenu
             Console.Write($"0. Punt\n1. Cirkel\n2. Cilinder\n");
-            
-            do
-            {
-                Console.Write("\nGeef een optie: ");
-                invoer = Console.ReadLine();
-            } while (!int.TryParse(invoer, out keuze) || keuze < 0 || keuze > 2);
 
+            // Keuze controleren
+            keuze = MenuKeuze(invoer, 0, 2);
+
+            // Selectie op basis van keuze
             switch (keuze)
             {
                 case 0:
                     // Punt
                     Console.Write("X: ");
-                    punt.X = double.Parse(Console.ReadLine());
+                    X = double.Parse(Console.ReadLine());
                     Console.Write("Y: ");
-                    punt.Y = double.Parse(Console.ReadLine());
-                    Console.WriteLine(punt.ToonGegevens());
+                    Y = double.Parse(Console.ReadLine());
+                    punt = new Punt(X, Y);
+                    weergave = punt.ToonGegevens();
                     break;
                 case 1:
                     // Cirkel
                     Console.Write("X: ");
-                    cirkel.X = double.Parse(Console.ReadLine());
+                    X = double.Parse(Console.ReadLine());
                     Console.Write("Y: ");
-                    cirkel.Y = double.Parse(Console.ReadLine());
+                    Y = double.Parse(Console.ReadLine());
                     Console.Write("Straal: ");
-                    cirkel.R = double.Parse(Console.ReadLine());
-                    Console.WriteLine(cirkel.ToonGegevens()); 
+                    straal = double.Parse(Console.ReadLine());
+                    cirkel = new Cirkel(X, Y, straal);
+                    weergave = cirkel.ToonGegevens();
                     break;
                 case 2:
                     // Cilinder
                     Console.Write("X: ");
-                    cilinder.X = double.Parse(Console.ReadLine());
+                    X = double.Parse(Console.ReadLine());
                     Console.Write("Y: ");
-                    cilinder.Y = double.Parse(Console.ReadLine());
+                    Y = double.Parse(Console.ReadLine());
                     Console.Write("Straal: ");
-                    cilinder.R = double.Parse(Console.ReadLine());
+                    straal = double.Parse(Console.ReadLine());
                     Console.Write("Hoogte: ");
-                    cilinder.H = double.Parse(Console.ReadLine());
-                    Console.WriteLine(cilinder.ToonGegevens());
+                    hoogte = double.Parse(Console.ReadLine());
+                    cilinder = new Cilinder(X, Y, straal, hoogte);
+                    weergave = cilinder.ToonGegevens();
                     break;
             }
+
+            //Weergave van het resultaat in de console
+            Console.WriteLine(weergave);
+        }
+
+        // Methode: Menukeuze
+        private static int MenuKeuze(string invoer, int min, int max)
+        {
+            int keuze;
+            do
+            {
+                Console.Write("Maak uw keuze: ");
+                invoer = Console.ReadLine();
+            } while (!int.TryParse(invoer, out keuze) || keuze < min || keuze > max);
+            return keuze;
+
         }
     }
 }

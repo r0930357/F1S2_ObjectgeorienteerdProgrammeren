@@ -19,7 +19,7 @@ namespace models
          * +ToonGegevens() : string
          */
 
-        public double _h;
+        private double _h;
 
         public double H
         {
@@ -32,15 +32,15 @@ namespace models
         // <klassenaam>:coord= (< X >,< Y >) straal<R>, hoogte<H>
         public override string Omschrijving
         {
-            get { return base.Omschrijving + $", hoogte {H}"; }
+            get { return base.Omschrijving + $", hoogte = {H}"; }
         }
 
-        public Cilinder(double x, double y, double h, double r) : base(x, y, r)
+        public Cilinder(double x, double y, double r, double h) : base(x, y, r)
         {
             H = h;
         }
 
-        public Cilinder() : this(0, 0, 0, 0) { }
+        public Cilinder() { }
 
         // Methode Oppervlakte()
         // Berekent de oppervlakte van de cilinder.
@@ -48,8 +48,7 @@ namespace models
         // Maak in de formule gebruik van de oppervlakte en de omtrek die in de klasse Cirkel is aangemaakt
         public override double Oppervlakte()
         {
-            double oppervlakte = 2 * base.Oppervlakte() + base.Omtrek() * H;
-            return oppervlakte;
+            return 2 * base.Oppervlakte() + base.Omtrek() * H;
         }
 
         // Methode Volume()
@@ -59,8 +58,7 @@ namespace models
 
         public double Volume()
         {
-            double volume = base.Oppervlakte() * H;
-            return volume;
+            return base.Oppervlakte() * H;
         }
 
         // Methode ToonGegevens()
@@ -72,10 +70,9 @@ namespace models
 
         public override string ToonGegevens()
         {
-            string toongegevens = $"{this.Omschrijving}\n" +
+            return $"{Omschrijving}\n" +
                 $"Oppervlakte: {Math.Round(Oppervlakte(), 2)}\n" +
                 $"Volume: {Math.Round(Volume(), 2)}";
-            return toongegevens;
         }
     }
 }
