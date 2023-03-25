@@ -10,7 +10,7 @@ namespace console
         {
             // Declaratie van de variabelen
             int keuzeRekening, keuzeMenu;
-            string invoer = "", weergave = "";
+            string invoer = "";
             double bedrag = 0;
 
             // Initialiseren van de objecten;
@@ -78,13 +78,11 @@ namespace console
                                 {
                                     spaarrekening.Storten(bedrag);
                                 }
-                                Console.WriteLine(spaarrekening.ToString());
                                 break;
                             case 3:
                                 /* Optie Schrijf rente bij
                                  */
                                 spaarrekening.SchrijfRentebij();
-                                Console.WriteLine(spaarrekening.ToString());
                                 break;
                             case 4:
                                 /* Optie Informatie
@@ -92,12 +90,11 @@ namespace console
                                  * Gebruik hiervoor de ToString() methode.
                                  * De applicatie sluit af na deze operatie.
                                  */
-                                Console.Write(spaarrekening.ToString());
+                                // Console.WriteLine(spaarrekening.ToString());
                                 break;
                         }
 
                         // Spaarrekening
-                        spaarrekening = new Spaarrekening(bankrekening.IbanNummer, bankrekening.Saldo);
                         Console.WriteLine("1. Afhalen\n" +
                             "2. Storten\n" +
                             "3. Schrijf rente bij\n" +
@@ -105,9 +102,7 @@ namespace console
 
                         keuzeMenu = MenuKeuze(invoer, 0, 4);
                     }
-
-                    Console.Write(spaarrekening.ToString());
-
+                    Console.WriteLine(spaarrekening.ToString());
                     break;
 
                 case 2:
@@ -177,12 +172,11 @@ namespace console
                                  * Gebruik hiervoor de ToString() methode.
                                  * De applicatie sluit af na deze operatie.
                                  */
-                                Console.Write(zichtrekening.ToString());
+                                // Console.WriteLine(zichtrekening.ToString());
                                 break;
                         }
                      
                         // Zichtrekening
-                        zichtrekening = new Zichtrekening(bankrekening.IbanNummer, bankrekening.Saldo);
                         Console.WriteLine("1. Afhalen\n" +
                             "2. Storten\n" +
                             "3. Schrijf rente bij\n" +
@@ -190,8 +184,7 @@ namespace console
 
                         keuzeMenu = MenuKeuze(invoer, 0, 4);
                     }
-                    Console.Write(zichtrekening.ToString());
-                    
+                    Console.WriteLine(zichtrekening.ToString());
                     break;
             }
         }
