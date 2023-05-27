@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dobbelsteen_WPF", "Dobbelsteen_WPF\Dobbelsteen_WPF.csproj", "{B7ABFDD3-906A-4B1B-9811-F9FAFBA95EC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7ABFDD3-906A-4B1B-9811-F9FAFBA95EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7ABFDD3-906A-4B1B-9811-F9FAFBA95EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7ABFDD3-906A-4B1B-9811-F9FAFBA95EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7ABFDD3-906A-4B1B-9811-F9FAFBA95EC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {056C93C0-F78D-4E39-BBA0-8CD431F94F4E}
+	EndGlobalSection
+EndGlobal

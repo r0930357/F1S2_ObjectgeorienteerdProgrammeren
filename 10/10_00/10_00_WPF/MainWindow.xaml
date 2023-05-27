@@ -1,0 +1,34 @@
+﻿<Window x:Class="_10_00_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_10_00_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Label Name="lblOutput" Grid.RowSpan="6" />
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <Label Content="Zijde" Margin="5" />
+            <TextBox Width="200" Margin="5" Name="txtZijde" />
+            <Button Name="btnInitialiseer" Content="Initialiseer" Margin="5" Click="btnInitialiseer_Click" />
+        </StackPanel>
+        <Button Name="btnTeken" Content="Teken" Margin="5" Grid.Row="1" Grid.Column="1" Click="btnTeken_Click" />
+        <Button Name="btnOmtrek" Content="Omtrek" Margin="5" Grid.Row="2" Grid.Column="1" Click="btnOmtrek_Click" />
+        <Button Name="btnOppervlakte" Content="Oppervlakte" Margin="5" Grid.Row="3" Grid.Column="1" Click="btnOppervlakte_Click" />
+        <Button Name="Diagonaal" Content="Diagonaal" Margin="5" Grid.Row="4" Grid.Column="1" Click="Diagonaal_Click" />
+        <Label Grid.Row="5" Foreground="DarkRed" Margin="5" />
+    </Grid>
+</Window>

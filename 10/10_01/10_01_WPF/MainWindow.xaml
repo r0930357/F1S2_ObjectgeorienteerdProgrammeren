@@ -1,0 +1,31 @@
+﻿<Window x:Class="_10_01_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_10_01_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblAchterNaam" Content="Achternaam:" Grid.Row="0" Grid.Column="0" />
+        <TextBox x:Name="txtAchterNaam" TabIndex="0" Grid.Column="1" Text="" HorizontalAlignment="Left" Margin="5" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" />
+        <Button x:Name="btnToevoegen" TabIndex="3" Content="Toevoegen" Grid.Row="0" Grid.Column="2" Margin="5" VerticalAlignment="Top" Click="btnToevoegen_Click" />
+        <Label x:Name="lblVoornaam" Content="Voornaam:" Grid.Row="1" Grid.Column="0" />
+        <TextBox x:Name="txtVoornaam" TabIndex="1" Grid.Column="1" Text="" HorizontalAlignment="Left" Margin="5" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" />
+        <Label x:Name="lblLoon" Content="Loon:" Grid.Row="2" Grid.Column="0" />
+        <TextBox x:Name="txtLoon" TabIndex="2" Grid.Column="1" Text="" HorizontalAlignment="Left" Margin="5" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" />
+        <TextBox x:Name="txtWerknemers" TabIndex="-1" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" FontFamily="Courier New" />
+    </Grid>
+</Window>
