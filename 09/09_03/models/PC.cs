@@ -52,12 +52,10 @@ namespace models
         {
             if (Moederbord.Socket != Processor.Socket)
             {
-                return false;
                 throw new Exception("Deze processor past niet op dit moederbord");
             }
             else if (Moederbord.GeheugenType != Geheugen.Type)
             {
-                return false;
                 throw new Exception("Dit geheugen past niet op dit moederbord");
             }
             return true;
@@ -68,11 +66,7 @@ namespace models
          */
         public bool PcIsCompleet()
         {
-            if (Geheugen != null && Moederbord != null && Processor != null)
-            {
-                return true;
-            }
-            return false;
+            return (Geheugen != null && Moederbord != null && Processor != null);
         }
 
         /*Methode VerwijderOnderdelen
